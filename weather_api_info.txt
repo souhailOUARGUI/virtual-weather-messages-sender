@@ -1,0 +1,4 @@
+https://www.meteosource.com/api/v1/free/point?place_id=essaouira&sections=all&timezone=UTC&language=en&units=metric&key=0ocvcezpqal4ork7427zgpd15qf5p3aysmh49ff5
+
+
+this is the api key for meteosource.com
