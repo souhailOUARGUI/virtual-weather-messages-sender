@@ -1,5 +1,7 @@
 // const { timeStamp } = require("console");
 
+const API_key = "https://moga-weather-api.onrender.com";
+
 const generateRandomInt = (min, max) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -19,20 +21,17 @@ const sendMetar = async () => {
         // console.log(data.current.wind.angle);
         // console.log(generateMetar(data.current.temperature));
         try {
-          const response = await fetch(
-            "http://localhost:3000/messages/metars",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(
-                generateMetar(
-                  data.current.temperature,
-                  data.current.wind.speed,
-                  data.current.wind.angle
-                )
-              ),
-            }
-          )
+          const response = await fetch(`${API_key}/messages/metars`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(
+              generateMetar(
+                data.current.temperature,
+                data.current.wind.speed,
+                data.current.wind.angle
+              )
+            ),
+          })
             .then((resp) => resp.json())
             .then((data) => {
               console.log("post msg sent");
@@ -56,7 +55,7 @@ const sendMetar = async () => {
 
 const sendSynop = async () => {
   try {
-    await fetch("http://localhost:3000/messages/synops", {
+    await fetch(`${API_key}/messages/synops`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(generateSynop()),

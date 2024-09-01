@@ -17,5 +17,5 @@ app.listen(port, () => {
   // }, 1000 * 60 * 60);
   setInterval(() => {
     sendMetar();
-  }, 5000);
+  }, 1000 * 60 * 30);
 });
