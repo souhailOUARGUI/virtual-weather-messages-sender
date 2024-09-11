@@ -1,6 +1,8 @@
 const express = require("express");
 const env = require("dotenv").config();
 const bodyParser = require("body-parser");
+import axios from "axios";
+
 const { sendMetar, sendSynop } = require("./virtualSender");
 
 const render_url = `https://moga-weather-api.onrender.com`; //Render URL
