@@ -1,9 +1,6 @@
 // const { timeStamp } = require("console");
 
-const API_key = "http://localhost:3000";
-
-const render_url = `https://moga-weather-api.onrender.com`; //Render URL
-const render_interval = 60000; // Interval in milliseconds (60 seconds)
+const API_key = "https://moga-weather-api.onrender.com";
 
 const generateRandomInt = (min, max) =>
   Math.floor(Math.random() * (max - min + 1)) + min;

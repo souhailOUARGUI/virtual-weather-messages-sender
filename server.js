@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const { sendMetar, sendSynop } = require("./virtualSender");
 
 const render_url = `https://moga-weather-api.onrender.com`; //Render URL
-const render_interval = 60000 * 5; // Interval in milliseconds (60 seconds)
+const render_interval = 30000; // Interval in milliseconds (60 seconds)
 
 const app = express();
 const port = 4000;
