@@ -2,11 +2,11 @@ const express = require("express");
 const env = require("dotenv").config();
 const bodyParser = require("body-parser");
 const axios = require("axios");
-
+// import axios from "axios";
 const { sendMetar, sendSynop } = require("./virtualSender");
 
 const render_url = `https://moga-weather-api.onrender.com`; //Render URL
-const render_interval = 60000 * 5; // Interval in milliseconds (60 seconds)
+const render_interval = 10000; // Interval in milliseconds (60 seconds)
 
 const app = express();
 const port = 4000;
@@ -21,15 +21,14 @@ app.listen(port, () => {
   //   sendSynop();
   // }, 1000 * 60 * 60);
   setInterval(() => {
-    sendMetar();
-    // sendSynop();
-  }, 60000 * 15);
+    // sendMetar();
+    sendSynop();
+  }, 60000 * 5);
   setInterval(reloadWebsite, render_interval);
 });
-
 //Reloader Function
-function reloadWebsite() {
-  axios
+async function reloadWebsite() {
+  await axios
     .get(render_url)
     .then((response) => {
       console.log(
